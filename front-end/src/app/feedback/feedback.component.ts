@@ -27,8 +27,8 @@ export class FeedbackComponent implements OnInit {
   }
 
   registerFeedback(): void{
-   this.feedbackService.addFeedback(this.feedbackForm.value).subscribe(res=>{
-     console.log(res)
+   this.feedbackService.addFeedback(this.feedbackForm.value).subscribe(newFeedback=>{
+    this.feedback.push(newFeedback)
    });
   }
 
@@ -36,6 +36,4 @@ export class FeedbackComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     this.feedbackService.sendGetRequest().subscribe(feedback => this.feedback = feedback);
   }
-  
-
 }
