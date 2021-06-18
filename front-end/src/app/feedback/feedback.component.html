@@ -1,0 +1,17 @@
+<h2>PROVIDE US WITH YOUR FEEDBACK</h2>
+
+<Form class="form-feedback" [formGroup]="feedbackForm" (ngSubmit)="registerFeedback()" >
+    <input type="text" class="form-control" formControlName="name" placeholder="Name & Last Name">
+    <input type="text" class="form-control" formControlName="content" placeholder="Write your feedback">
+    <button type="submit" class="btn btn-block btn-primary"> Submit </button>
+</Form>
+
+
+
+<div *ngFor='let feedback of feedback'>
+<ul class="feedback">
+  <li >
+    <span class="oneFeedback"> {{feedback.name}} : {{feedback.content}} </span>
+  </li>
+</ul>
+</div>
