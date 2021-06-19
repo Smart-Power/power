@@ -1,5 +1,5 @@
 export interface Feedback {
-    id?:Number;
+    id?:number;
     name:string;
     content:string;
 }

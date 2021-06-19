@@ -7,15 +7,64 @@
 </Form>
 
 
-
 <div *ngFor='let feedback of feedback'>
-<ul class="feedback">
-  <li >
-    <span class="oneFeedback"> {{feedback.name}} : {{feedback.content}} </span>
-  </li>
-</ul>
+  <div class="card">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'" class="text-center">
+          <ngb-tab>
+            <ng-template ngbTabTitle>
+            {{feedback.name}}
+            </ng-template>
+            <ng-template ngbTabContent>
+              <p>
+             {{feedback.content}}
+              </p>
+              <button (click)='deleteFeedback(feedback)' class="now-ui-icons ui-1_simple-remove">
+                    DELETE 
+              </button>
+            </ng-template>
+          </ngb-tab> 
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
 
+
+
+<!-- <ul class="feedback">
+  <li >
+    <span class="oneFeedback"> {{feedback.name}} : {{feedback.content}} </span>    
+    <span (click)='deleteFeedback(feedback)' class="now-ui-icons ui-1_simple-remove"></span>
+  </li>
+</ul> -->
+<!-- <div class="card">
+  <div class="nav-tabs-navigation">
+    <div class="nav-tabs-wrapper">
+      <ngb-tabset [justify]="'center'" class="text-center">
+        <ngb-tab>
+          <ng-template ngbTabTitle>
+            {{feedback.name}}
+          </ng-template>
+          <ng-template ngbTabContent>
+            <p>
+              {{feedback.content}}
+            </p>
+          </ng-template>
+        </ngb-tab>
+        
+        <ngb-tab>
+          
+          
+        </ngb-tab>
+        
+      </ngb-tabset>
+    </div>
+  </div>
+</div>
+
+ -->
