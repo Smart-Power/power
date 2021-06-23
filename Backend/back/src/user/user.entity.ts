@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn , OneToMany , ManyToOne } from 'typeorm';
+import { Feedback } from '../feedback/feedback.entity'
 
 @Entity()
 export class User {
@@ -12,7 +13,7 @@ export class User {
   LastName: String;
 
   @Column()
-  Email: String;
+  email: String;
 
   @Column()
   phoneNumber: Number;
@@ -20,15 +21,18 @@ export class User {
   @Column()
   password: String;
 
-  @Column()
+  @Column( {default: ""})
   image: String;
 
-  @Column()
+  @Column( {default: ""})
   adress: String;
 
-  @Column()
+  @Column( {default: null})
   cin: Number;
 
-  @Column()
+  @Column( {default: ""})
   type: String;
+
+  // @OneToMany(() => Feedback, feedback => feedback.user)
+  // feedbacks: Feedback[];
 }
