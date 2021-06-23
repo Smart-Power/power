@@ -6,9 +6,7 @@ import { FeedbackModule } from './feedback/feedback.module';
 import { Feedback } from './feedback/feedback.entity';
 import { User } from './user/user.entity';
 import { Car } from './car/entities/car.entity';
-
-
-
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     
@@ -23,6 +21,7 @@ import { Car } from './car/entities/car.entity';
       synchronize: true,
     }),
     FeedbackModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

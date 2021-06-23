@@ -11,27 +11,52 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { SignupComponent } from "./signup/signup.component";
+import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { UserService } from "./services/user.service";
+import { AuthGuard } from "./auth.guard";
+ import {ToastrModule} from "ngx-toastr";
+import { JwtModule } from "@auth0/angular-jwt";
+import { ValidateService } from './services/validate.service';
+import { SearchComponent } from './search/search.component';
+
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavbarComponent,
-        FeedbackComponent,
-    ],
-    imports: [
-        BrowserAnimationsModule,
-        NgbModule,
-        FormsModule,
-        RouterModule,
-        AppRoutingModule,
-        ComponentsModule,
-        ExamplesModule,
-        HttpClientModule,
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent, NavbarComponent, SignupComponent, SearchComponent],
+  imports: [
+    BrowserAnimationsModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule,
+    RouterModule,
+    AppRoutingModule,
+    ComponentsModule,
+    ExamplesModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    FormsModule,
+    RouterModule,
+    FeedbackComponent,
+    AppRoutingModule,
+    ComponentsModule,
+    ExamplesModule,
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
+    MDBBootstrapModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem("id_token");
+        }
+      }
+    }),
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    })
+  ],
+  providers: [UserService, ValidateService, AuthGuard],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
