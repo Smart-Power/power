@@ -13,7 +13,6 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SignupComponent } from "./signup/signup.component";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
-import { UserService } from "./services/user.service";
 import { AuthGuard } from "./auth.guard";
  import {ToastrModule} from "ngx-toastr";
 import { JwtModule } from "@auth0/angular-jwt";
@@ -22,7 +21,7 @@ import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, SignupComponent, SearchComponent],
+  declarations: [AppComponent, FeedbackComponent, NavbarComponent, SignupComponent, SearchComponent],
   imports: [
     BrowserAnimationsModule,
     HttpClientModule,
@@ -36,14 +35,13 @@ import { SearchComponent } from './search/search.component';
     NgbModule,
     FormsModule,
     RouterModule,
-    FeedbackComponent,
     AppRoutingModule,
     ComponentsModule,
     ExamplesModule,
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
       config: {
@@ -56,7 +54,7 @@ import { SearchComponent } from './search/search.component';
       positionClass :'toast-bottom-right'
     })
   ],
-  providers: [UserService, ValidateService, AuthGuard],
+  providers: [ValidateService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
