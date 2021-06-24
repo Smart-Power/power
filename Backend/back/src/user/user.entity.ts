@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn , OneToMany , ManyToOne } from 'typeorm';
+import { Feedback } from '../feedback/feedback.entity'
 
 @Entity()
 export class User {
@@ -31,4 +32,7 @@ export class User {
 
   @Column( {default: ""})
   type: String;
+
+  // @OneToMany(() => Feedback, feedback => feedback.user)
+  // feedbacks: Feedback[];
 }

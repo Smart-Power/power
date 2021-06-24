@@ -49,9 +49,9 @@
     >
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="" target="_blank">
+          <a  class="nav-link" href="" target="_blank">
             <i class="now-ui-icons emoticons_satisfied"></i>
-            <p>Feedbacks</p>
+           <a routerLink='/feed'> <p>Feedbacks</p></a>
           </a>
         </li>
         <!-- <li class="nav-item">
@@ -86,7 +86,7 @@
             <i class="now-ui-icons ui-2_favourite-28"></i> Sign Up
           </button>
         </li>
-        <li class="nav-item" *ngIf="loggedIn">
+        <li class="nav-item" *ngIf="userService.loggedIn()">
           <button
             class="btn btn-primary btn-round"
             type="button"

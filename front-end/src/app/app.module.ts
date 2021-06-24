@@ -1,24 +1,27 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"; // this is needed!
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { RouterModule } from "@angular/router";
-import { AppRoutingModule } from "./app.routing";
-import { ComponentsModule } from "./components/components.module";
-import { ExamplesModule } from "./examples/examples.module";
-import { HttpClientModule,HttpHeaders} from "@angular/common/http";
-import { AppComponent } from "./app.component";
-import { NavbarComponent } from "./shared/navbar/navbar.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
+import { ExamplesModule } from './examples/examples.module';
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { SignupComponent } from "./signup/signup.component";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
-import { UserService } from "./services/user.service";
 import { AuthGuard } from "./auth.guard";
  import {ToastrModule} from "ngx-toastr";
 import { JwtModule } from "@auth0/angular-jwt";
 import { ValidateService } from './services/validate.service';
 import { SearchComponent } from './search/search.component';
+
+
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, SignupComponent, SearchComponent],
+  declarations: [AppComponent, FeedbackComponent, NavbarComponent, SignupComponent, SearchComponent],
   imports: [
     BrowserAnimationsModule,
     HttpClientModule,
@@ -28,6 +31,17 @@ import { SearchComponent } from './search/search.component';
     AppRoutingModule,
     ComponentsModule,
     ExamplesModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    FormsModule,
+    RouterModule,
+    AppRoutingModule,
+    ComponentsModule,
+    ExamplesModule,
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
       config: {
@@ -40,7 +54,7 @@ import { SearchComponent } from './search/search.component';
       positionClass :'toast-bottom-right'
     })
   ],
-  providers: [UserService, ValidateService, AuthGuard],
+  providers: [ValidateService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
