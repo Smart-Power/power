@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import{User} from '../user/user.entity'
-import{Car} from '../car/entities/car.entity'
+import{Car} from '../car/car.entity'
 
 
 @Entity()
@@ -8,13 +8,11 @@ export class Feedback {
   @PrimaryGeneratedColumn()
   id: Number;
 
-  @ManyToOne(() => User, user => user.FirstName) 
-  idUser: User[
-    
-  ];
+  @ManyToOne(() => User, user => user.id)
+  user: User;
 
   @ManyToOne(() => Car, car => car.id)
-  idCar: Car;
+  car: Car;
 
   @Column()
   content: String; 

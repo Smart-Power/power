@@ -24,7 +24,6 @@ export class FeedbackService {
       Authorization: localStorage.getItem("id_token"),
       "Content-Type": "application/json"
     });
-    console.log(feedback)
    return this.http.post<Feedback>(this.feedbackUrl, JSON.stringify(feedback),{headers})
 
   }

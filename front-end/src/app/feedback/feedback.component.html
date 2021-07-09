@@ -5,20 +5,20 @@
     <button type="submit" class="btn btn-block btn-primary"> Submit </button>
 </Form>
 
-<div *ngFor='let feedback of feedback'>
+<div *ngFor='let f of feedback'>
   <div class="card">
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
         <ngb-tabset [justify]="'center'" class="text-center">
           <ngb-tab>
-            <ng-template ngbTabTitle>
-            {{feedback.idUser}}
-            </ng-template>
+            <!-- <ng-template ngbTabTitle>
+            {{f.user.FirstName}} {{f.user.LastName}}
+            </ng-template> -->
             <ng-template ngbTabContent>
               <p>
-             {{feedback.content}}
+             {{f.content}}
               </p>
-              <button (click)='deleteFeedback(feedback)' class="now-ui-icons ui-1_simple-remove">
+              <button (click)='deleteFeedback(f)' class="now-ui-icons ui-1_simple-remove">
                     DELETE 
               </button>
             </ng-template>
@@ -28,7 +28,6 @@
     </div>
   </div>
 </div>
-
 
 
 

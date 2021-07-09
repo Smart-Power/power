@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute } from '@angular/router'
 import { Feedback } from "../feedback";
 import {Location} from '@angular/common'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,10 +18,12 @@ export class FeedbackComponent implements OnInit {
   feedback:Feedback[]=[];
   private idCar:number
     
-  constructor(private feedbackService : FeedbackService ,
-     public fb:FormBuilder ,
+  constructor(
+      private feedbackService : FeedbackService ,
+      public fb:FormBuilder ,
       private route: ActivatedRoute ,
       private location :Location,
+      private router: Router
       ) {
     this.feedbackForm=this.fb.group({
       content: ['']
@@ -36,12 +39,14 @@ export class FeedbackComponent implements OnInit {
   registerFeedback(): void{
     const id = Number(localStorage.getItem('user_id'))
     const f={
-      idCar:this.idCar,
-      idUser:id,
+      car:this.idCar,
+      user:id,
       content:this.feedbackForm.get('content').value
     }
    this.feedbackService.addFeedback(f).subscribe(newFeedback=>{
     this.feedback.push(newFeedback)
+    this.router.navigate(['car/',this.idCar]);
+
    });
   }
 

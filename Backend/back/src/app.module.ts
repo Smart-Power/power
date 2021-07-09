@@ -22,7 +22,7 @@ import { FeedbackModule } from './feedback/feedback.module';
       username: 'root',
       password: 'Taraji2020',
       database: 'power',
-      entities: [ User , Car , Reservation ,Rating, Feedback],
+      entities: [__dirname + '/**/*.entity{.ts,.js}', User , Car , Reservation ,Rating, Feedback],
       synchronize: true,
     }),
     CloudinaryModule,

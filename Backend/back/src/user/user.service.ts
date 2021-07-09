@@ -14,12 +14,8 @@ export class UserService {
 
 
   async findOne(email: string): Promise<User | undefined> {
-<<<<<<< HEAD
-    return this.usersRepository.findOne({ email: email });
-=======
-    console.log(email);
     return this.userRepository.findOne({ email: email });
->>>>>>> d93e9f1b29470aaa1761b7195ceed02eaf35dd52
+
   }
   findOne1(id: number): Promise<User> {
     return this.userRepository.findOne(id);
@@ -64,13 +60,6 @@ export class UserService {
     return this.userRepository.find();
   }
 
-<<<<<<< HEAD
-
-=======
-  // findOne(id: number): Promise<User> {
-  //   return this.userRepository.findOne(id);
-  // }
->>>>>>> d93e9f1b29470aaa1761b7195ceed02eaf35dd52
 
   async remove(id: number): Promise<void> {
     await this.userRepository.delete(id);

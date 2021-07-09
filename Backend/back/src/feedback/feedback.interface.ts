@@ -1,4 +1,5 @@
 export interface Feedback {
-    id: number;
+  idUser:Number;
+  idCar: Number;
     content: string;
   }

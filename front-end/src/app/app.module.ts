@@ -27,7 +27,7 @@ import { RatingComponent } from './rating/rating.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import { MapComponent } from './map/map.component'
 @NgModule({
-  declarations: [AppComponent,FeedbackComponent, NavbarComponent, SignupComponent, SearchComponent, ListCarComponent, CarDetailComponent, ReservationComponent, RatingComponent, MapComponent],
+  declarations: [AppComponent, NavbarComponent, SignupComponent, SearchComponent, ListCarComponent, CarDetailComponent, ReservationComponent, RatingComponent, FeedbackComponent, MapComponent],
   imports: [
     BrowserAnimationsModule,
     HttpClientModule,

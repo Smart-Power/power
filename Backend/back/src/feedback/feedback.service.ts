@@ -12,8 +12,8 @@ export class FeedbackService {
         private feedbackRepository: Repository<Feedback>,
       ) {}
 
-      create(CreateFeedbackDto: CreateFeedbackDto) {
-        return this.feedbackRepository.save(CreateFeedbackDto);
+      create(createFeedbackDto: CreateFeedbackDto){
+        return this.feedbackRepository.save(createFeedbackDto);
       }
   
       findAll(): Promise<Feedback[]> {
@@ -21,7 +21,7 @@ export class FeedbackService {
       }
     
       findOne(id: number): Promise<Feedback[]> {
-        return this.feedbackRepository.find({where:{idCar:id}});
+        return this.feedbackRepository.find({where:{car:id},relations: ['user']});
       }
     
       async remove(id: number): Promise<void> {

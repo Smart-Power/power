@@ -23,7 +23,6 @@ export class CarService {
 
   getFeedback(id:number){
     const url = `${this.feedbackCar}/${id}`;
-    console.log(url)
     return this.http.get<Feedback>(url)
   }
 }

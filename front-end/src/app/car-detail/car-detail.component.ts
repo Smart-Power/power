@@ -27,14 +27,15 @@ export class CarDetailComponent implements OnInit {
   }
   getCar() : void{
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    console.log(this.id)
     this.CarService.getCar(this.id)
       .subscribe(car => this.car = car);
   }
 
   getFeedback(){
     this.CarService.getFeedback(this.id).subscribe
-    (feedback=> this.feedback=feedback)
+    (feedback=>{
+      this.feedback=feedback;
+    })
   }
   
 }
