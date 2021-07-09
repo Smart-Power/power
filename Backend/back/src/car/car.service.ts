@@ -12,8 +12,8 @@ export class CarService {
     @InjectRepository(Car)
     private carRepository: Repository<Car>,
   ) {}
-  async create(car: CreateCarDto): Promise<Car> {
-    return await this.carRepository.save(car);
+  create(createCarDto: CreateCarDto) {
+    return this.carRepository.save(createCarDto);
   }
 
   async readAll(): Promise<Car[]> {

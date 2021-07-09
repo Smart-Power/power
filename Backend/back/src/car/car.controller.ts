@@ -36,17 +36,22 @@ export class CarController {
     return this.carService.findOne(+id);
   }
 
-  @Post('create')
-  @UseInterceptors(FileInterceptor('file'))
-  async create(
-    @Body() car: CreateCarDto,
-    @UploadedFile('') file,
-  ): Promise<any> {
-    let result: CloudinaryResult = await this.cloudinaryService.uploadImage(
-      file,
-    );
-    car.file = result.secure_url;
-    return this.carService.create(car);
+  // @Post('create')
+  // @UseInterceptors(FileInterceptor('file'))
+  // async create(
+  //   @Body() car: CreateCarDto,
+  //   @UploadedFile('') file,
+  // ): Promise<any> {
+  //   let result: CloudinaryResult = await this.cloudinaryService.uploadImage(
+  //     file,
+  //   );
+  //   car.file = result.secure_url;
+  //   return this.carService.create(car);
+  // }
+  @Post()
+  create(@Body() createCarDto: CreateCarDto) {
+    console.log(createCarDto)
+    return this.carService.create(createCarDto);
   }
   // @Post()
   // create(@Body() createCarDto: CreateCarDto) {

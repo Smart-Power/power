@@ -56,19 +56,27 @@
                                     <div class="row collections">
                                         <div *ngFor='let res of reservation;let i=index'  class="col-md-6">
                                             <p>{{res.car.brand}}</p>
-                                            <img src={{res.car.file1}} alt="" class="img-raised"> 
+                                            <img src={{res.car.file}} alt="" class="img-raised"> 
                                             <button
                                             id="button"
                                             type="button"
                                             class="btn btn-default btn-tooltip"
                                             (click)='deleteReservation(car)'
                                             style="background-color: blueviolet; margin-top: 5px;">
-                                            delete                                           
+                                            Delete                                           
                                           </button>
                                       
-                                          <button (click)="nav(res.car.id)" *ngIf="compare(i)" >
-                                            Feedback
-                                          </button>
+                                    
+                                          <button
+                                          id="button"
+                                          type="button"
+                                          class="btn btn-default btn-tooltip"
+                                          (click)="nav(res.car.id)" 
+                                          style="background-color: blueviolet; margin-top: 5px;"
+                                          *ngIf="compare(i)" 
+                                          >
+                                          Feedback
+                                        </button>
                                         </div>
                                         
                                     </div>

@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
 import { Car } from '../car';
@@ -10,13 +9,10 @@ import { CarService } from '../car.service';
   styleUrls: ['./list-car.component.css']
 })
 export class ListCarComponent implements OnInit {
-   brand : string 
-   noMore:boolean=true
-   currentRate = 8;
-   curentCars=3
-   cars:Car[]=[];
-   allCars:Car[]=[]
-   name:string; 
+  currentRate = 8;
+
+ cars:Car[]=[];
+ name:string; 
   constructor(private CarService : CarService) {}
 
   ngOnInit(): void {
@@ -26,22 +22,24 @@ export class ListCarComponent implements OnInit {
    
   getCars(){
     this.CarService.getCars()
-    .subscribe((cars)=>{
-      this.allCars=cars
-      this.cars=cars.filter((e,i)=>{
-        return i<this.curentCars
-      })
-      console.log(this.allCars)
+    .subscribe((cars: Car[])=>{
+      this.cars=cars
+      // console.log(this.cars)
     })
   }
- 
-  moreCars(num){
-    if(this.allCars.length-1===this.curentCars){
-      this.noMore=false
-    }
-    this.curentCars+=num
-    console.log(this.curentCars);
-    this.getCars()
-  }
+
+  
+
+//   search (){
+//     if(this.name!==""){
+//      this.cars = this.cars.filter(res=>res.brand.toLocaleLowerCase().match(this.name.toLocaleLowerCase()))
+//       this.ngOnInit()
+//       console.log(this.name);
+      
+//     }else if (this.name==''){
+//       this.getCars()
+//     }
+// };
+
   
 }
